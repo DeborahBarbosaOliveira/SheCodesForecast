@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="https://kit.fontawesome.com/2d8c958706.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Forecast</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card-group">
+            <div class="card">
+
+                <h2 class="city" id="current-city"></h2>
+                <h3 id="date"> </h3>
+                <div class="card border-danger mb-3" class="current-weather" style="max-width: 15rem;">
+                    <h1 class="card-title"><i class="fas fa-sun"></i></h1>
+                    <div class="card-header">
+                        <span class="current-temp" id="city-temp"> </span> <a href="#" id="celsius-link">C°</a> | <a
+                            href="#" id="fahrenheit-link">F°</a>
+                        <br />
+                        <p id="temperature-description"></p>
+                    </div>
+                    <div class="card-body text-danger">
+                        <h5 class="card-title">Real feel: <span id="real-feel"> </span> </h5>
+                        <p class="card-text"> <i class="fas fa-tint"></i> <span id="humidity"> </span> <br />
+                            <i class="fas fa-wind"></i> Wind: <span id="speed"> </span> </p>
+                    </div>
+                </div>
+
+                <form id="search-form">
+                    <input type="submit" value="📍">
+                    <input type="text" autocomplete="off" autofocus="on" id="input-city" placeholder="Enter a city!">
+                </form>
+            </div>
+            <div class="col future">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row day-one">
+                                <p div class="day-date">Sat, <br /> 10.10 </p>
+                            </th>
+                            <td>⛅ <br />
+                                <p class="precipitation"> <i class="fas fa-tint"></i> 1% <br />
+                            </td>
+                            <td>
+                                <p div class="temperatures">27° <i class="fas fa-long-arrow-alt-up"></i> <br /> 15° <i
+                                        class="fas fa-long-arrow-alt-down"></i></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row day-one">
+                                <p div class="day-date">Sun, <br /> 11.10 </p>
+                            </th>
+                            <td>☀️ <br />
+                                <p class="precipitation"> <i class="fas fa-tint"></i> 0% <br />
+                            </td>
+                            <td>
+                                <p div class="temperatures">26° <i class="fas fa-long-arrow-alt-up"></i> <br /> 13° <i
+                                        class="fas fa-long-arrow-alt-down"></i></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row day-one">
+                                <p div class="day-date">Mon, <br /> 12.10 </p>
+                            </th>
+                            <td>☀️ <br />
+                                <p class="precipitation"> <i class="fas fa-tint"></i> 0% <br />
+                            </td>
+                            <td>
+                                <p div class="temperatures">25° <i class="fas fa-long-arrow-alt-up"></i> <br /> 12° <i
+                                        class="fas fa-long-arrow-alt-down"></i></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row day-one">
+                                <p div class="day-date">Mon, <br /> 12.10 </p>
+                            </th>
+                            <td>⛅ <br />
+                                <p class="precipitation"> <i class="fas fa-tint"></i> 1% <br />
+                            </td>
+                            <td>
+                                <p div class="temperatures">24° <i class="fas fa-long-arrow-alt-up"></i> <br /> 13° <i
+                                        class="fas fa-long-arrow-alt-down"></i></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row day-one">
+                                <p div class="day-date">Mon, <br /> 12.10 </p>
+                            </th>
+                            <td>☀️ <br />
+                                <p class="precipitation"> <i class="fas fa-tint"></i> 1% <br />
+                            </td>
+                            <td>
+                                <p div class="temperatures">22° <i class="fas fa-long-arrow-alt-up"></i> <br /> 12° <i
+                                        class="fas fa-long-arrow-alt-down"></i></p>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
