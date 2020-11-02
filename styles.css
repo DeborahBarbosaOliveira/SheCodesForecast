@@ -1,0 +1,109 @@
+body {
+  font-family: "Alegreya Sans", sans-serif;
+}
+.city {
+  font-size: 38px;
+}
+
+.row {
+  text-align: center;
+  font-size: large;
+}
+
+.fa-sun {
+  color: yellow;
+  font-size: 60px;
+  margin: 0 block;
+}
+
+h1 {
+  text-align: center;
+  padding: 0 10px;
+}
+h2 {
+  color: yellowgreen;
+  font-size: 62px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  text-transform: capitalize;
+}
+p {
+  text-transform: capitalize;
+}
+
+.temperature-description {
+  text-transform: capitalize;
+}
+h3 {
+  color: #b71c1c;
+  text-align: center;
+  font-size: 15px;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 28px;
+  color: #423144;
+}
+.card-title {
+  font-size: 18px;
+  text-align: center;
+  margin: 2px;
+  color: #d50000;
+}
+.fa-tint {
+  color: blue;
+}
+.fa-wind {
+  color: burlywood;
+}
+.card-text {
+  text-align: center;
+  color: black;
+}
+.card {
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  flex-direction: column;
+  min-width: max-content;
+  max-width: 250px;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
+
+form {
+  width: 200px;
+  margin: auto;
+  position: relative;
+  height: 38px;
+}
+.precipitation {
+  font-size: 10px;
+}
+.day-date {
+  font-size: 14px;
+}
+.temperatures {
+  font-size: 14px;
+}
+tr {
+  text-align: center;
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  padding: 0 0;
+}
+.future {
+  padding-left: 0px;
+  margin-top: 0px;
+  padding-right: 0px;
+  margin: 0px;
+}
+.table {
+  max-width: 200px;
+  border-collapse: separate;
+  border-spacing: 0 2px;
+  margin-bottom: 0px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 1px;
+}
