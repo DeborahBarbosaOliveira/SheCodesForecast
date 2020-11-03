@@ -74,6 +74,11 @@ let month = months[now.getMonth()];
 
 let day = now.getDate();
 
+let day2 = new getDate(day);
+day2.setDate(day.getDate()+1);
+
+console.log(day2);
+
 let currentMinute = now.getMinutes();
 if (currentMinute < 10) {
   currentMinute = `0${currentMinute}`;
