@@ -45,16 +45,30 @@ function showTemperature(response) {
 }
 
 let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
+
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let weekday = days[now.getDay()];
+
+let weekday2 = days[now.getDay() + 1];
+let weekday3 = days[now.getDay() + 2];
+let weekday4 = days[now.getDay() + 3];
+let weekday5 = days[now.getDay() + 4];
+let weekday6 = days[now.getDay() + 5];
+
+let weekdaytwo = document.querySelector("#weekday-two");
+weekdaytwo.innerHTML = `${weekday2}`;
+
+let weekdaythree = document.querySelector("#weekday-three");
+weekdaythree.innerHTML = `${weekday3}`;
+
+let weekdayfour = document.querySelector("#weekday-four");
+weekdayfour.innerHTML = `${weekday4}`;
+
+let weekdayfive = document.querySelector("#weekday-five");
+weekdayfive.innerHTML = `${weekday5}`;
+
+let weekdaysix = document.querySelector("#weekday-six");
+weekdaysix.innerHTML = `${weekday6}`;
 
 let months = [
   "Jan",
@@ -74,10 +88,26 @@ let month = months[now.getMonth()];
 
 let day = now.getDate();
 
-let day2 = new getDate(day);
-day2.setDate(day.getDate()+1);
+let day2 = now.getDate() + 1;
+let day3 = now.getDate() + 2;
+let day4 = now.getDate() + 3;
+let day5 = now.getDate() + 4;
+let day6 = now.getDate() + 5;
 
-console.log(day2);
+let daytwo = document.querySelector("#day-two");
+daytwo.innerHTML = `${month}/${day2}`;
+
+let daythree = document.querySelector("#day-three");
+daythree.innerHTML = `${month}/${day3}`;
+
+let dayfour = document.querySelector("#day-four");
+dayfour.innerHTML = `${month}/${day4}`;
+
+let dayfive = document.querySelector("#day-five");
+dayfive.innerHTML = `${month}/${day5}`;
+
+let daysix = document.querySelector("#day-six");
+daysix.innerHTML = `${month}/${day6}`;
 
 let currentMinute = now.getMinutes();
 if (currentMinute < 10) {
@@ -119,6 +149,9 @@ searchForm.addEventListener("submit", showCity);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
 function convertToFahrenheit(event) {
   event.preventDefault();
 
@@ -126,4 +159,15 @@ function convertToFahrenheit(event) {
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
   temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  fahrenheitLink.removeEventListener("click", convertToFahrenheit);
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+
+  let temperatureElement = document.querySelector("#city-temp");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
+  fahrenheitLink.removeEventListener("click", convertToCelsius);
 }
