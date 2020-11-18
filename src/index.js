@@ -13,13 +13,6 @@ function showPosition(position) {
 navigator.geolocation.getCurrentPosition(showPosition);
 
 function showTemperature(response) {
-  console.log(response.data.main.temp);
-  console.log(response.data.weather[0].main);
-  console.log(response.data.name);
-  console.log(response.data.main.feels_like);
-  console.log(response.data.wind.speed);
-  console.log(response);
-
   let city = response.data.name;
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = `${city}`;
@@ -42,11 +35,18 @@ function showTemperature(response) {
 
   document.querySelector("#humidity").innerHTML =
     response.data.main.humidity + "%";
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let now = new Date();
 
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 let weekday = days[now.getDay()];
 
 let weekday2 = days[now.getDay() + 1];
@@ -164,10 +164,10 @@ function convertToFahrenheit(event) {
 
 function convertToCelsius(event) {
   event.preventDefault();
-
   let temperatureElement = document.querySelector("#city-temp");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
   temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
-  fahrenheitLink.removeEventListener("click", convertToCelsius);
+  celsiusLink.removeEventListener("click", convertToCelsius);
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
 }
