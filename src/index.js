@@ -17,7 +17,9 @@ function showTemperature(response) {
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = `${city}`;
 
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
+
+  let temperature = Math.round(celsiusTemperature);
   let temperatureElement = document.querySelector("#city-temp");
   temperatureElement.innerHTML = `${temperature}`;
 
@@ -152,22 +154,29 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
+let celsiusTemperature = null;
+
 function convertToFahrenheit(event) {
   event.preventDefault();
-
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#city-temp");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
   temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-  fahrenheitLink.removeEventListener("click", convertToFahrenheit);
+
+  let realFeelElement = document.querySelector("#real-feel");
+  realFeelElement.innerHTML = `${Math.round((temperature * 9) / 5 + 32)} °F`;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+
   let temperatureElement = document.querySelector("#city-temp");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
-  celsiusLink.removeEventListener("click", convertToCelsius);
-  fahrenheitLink.addEventListener("click", convertToFahrenheit);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let realFeelElement = document.querySelector("#real-feel");
+  realFeelElement.innerHTML = `${Math.round(celsiusTemperature)} °C`;
 }

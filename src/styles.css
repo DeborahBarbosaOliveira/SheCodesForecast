@@ -107,3 +107,12 @@ tr {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1px;
 }
+
+.card-header .active {
+  color: #423144;
+  cursor: default;
+}
+
+.card-header .active:hover {
+  text-decoration: none;
+}
