@@ -36,9 +36,11 @@ function showTemperature(response) {
   let descElement = document.querySelector("#temperature-description");
   descElement.innerHTML = `${desc}`;
 
-  let wind = response.data.wind.speed;
+  metricWindSpeed = response.data.wind.speed;
+  console.log(metricWindSpeed);
+  let wind = metricWindSpeed;
   let windElement = document.querySelector("#speed");
-  windElement.innerHTML = `${wind} km/h`;
+  windElement.innerHTML = `${wind}`;
 
   document.querySelector("#humidity").innerHTML =
     response.data.main.humidity + "%";
@@ -163,8 +165,14 @@ function convertToCelsius(event) {
   let realFeelElement = document.querySelector("#real-feel");
   realFeelElement.innerHTML = Math.round(celsiusRealFeel);
 
+  let windSpeedElement = document.querySelector("#speed");
+  windSpeedElement.innerHTML = metricWindSpeed;
+
   let cMetric = document.querySelector("#metric");
   cMetric.innerHTML = `°C`;
+
+  let windMetric = document.querySelector("#wind-unit");
+  windMetric.innerHTML = ` km/h`;
 }
 
 function convertToFahrenheit(event) {
@@ -181,12 +189,20 @@ function convertToFahrenheit(event) {
   fRealFeel = Number(fRealFeel);
   realFeelElement.innerHTML = Math.round(fRealFeel);
 
+  let windSpeedElement = document.querySelector("#speed");
+  let iWindSpeed = metricWindSpeed / 1.609344;
+  windSpeedElement.innerHTML = Math.round(iWindSpeed);
+
   let fMetric = document.querySelector("#metric");
   fMetric.innerHTML = `°F`;
+
+  let windMetric = document.querySelector("#wind-unit");
+  windMetric.innerHTML = ` mph`;
 }
 
 let celsiusTemperature = null;
 let celsiusRealFeel = null;
+let metricWindSpeed = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
