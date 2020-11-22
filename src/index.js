@@ -8,6 +8,119 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
 
   axios.get(apiUrl).then(showTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function searchCity(city) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data.list[0]);
+
+  //day2
+  let dayTwoMin = Math.round(response.data.list[6].main.temp_min);
+  let dayTwoMinElement = document.querySelector("#day-two-min");
+  dayTwoMinElement.innerHTML = `${dayTwoMin}°C`;
+
+  let dayTwoMax = Math.round(response.data.list[8].main.temp_max);
+  let dayTwoMaxElement = document.querySelector("#day-two-max");
+  dayTwoMaxElement.innerHTML = `${dayTwoMax}°C`;
+
+  let dayTwoHumidity = response.data.list[7].main.humidity;
+  console.log(dayTwoHumidity);
+  Number(dayTwoHumidity);
+  let dayTwoHumidityElement = document.querySelector("#day-two-humidity");
+  dayTwoHumidityElement.innerHTML = `${dayTwoHumidity}%`;
+
+  let iconElement = document.querySelector("#icon-day-two");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.list[7].weather[0].icon}@2x.png`
+  );
+
+  //day3
+  let dayThreeMin = Math.round(response.data.list[14].main.temp_min);
+  let dayThreeMinElement = document.querySelector("#day-three-min");
+  dayThreeMinElement.innerHTML = `${dayThreeMin}°C`;
+
+  let dayThreeMax = Math.round(response.data.list[16].main.temp_max);
+  let dayThreeMaxElement = document.querySelector("#day-three-max");
+  dayThreeMaxElement.innerHTML = `${dayThreeMax}°C`;
+
+  let dayThreeHumidity = response.data.list[15].main.humidity;
+  console.log(dayThreeHumidity);
+  let dayThreeHumidityElement = document.querySelector("#day-three-humidity");
+  dayThreeHumidityElement.innerHTML = `${dayThreeHumidity}%`;
+
+  let iconElementThree = document.querySelector("#icon-day-three");
+  iconElementThree.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.list[15].weather[0].icon}@2x.png`
+  );
+
+  //day4
+  let dayFourMin = Math.round(response.data.list[23].main.temp_min);
+  let dayFourMinElement = document.querySelector("#day-four-min");
+  dayFourMinElement.innerHTML = `${dayFourMin}°C`;
+
+  let dayFourMax = Math.round(response.data.list[25].main.temp_max);
+  let dayFourMaxElement = document.querySelector("#day-four-max");
+  dayFourMaxElement.innerHTML = `${dayFourMax}°C`;
+
+  let dayFourHumidity = response.data.list[23].main.humidity;
+  let dayFourHumidityElement = document.querySelector("#day-four-humidity");
+  dayFourHumidityElement.innerHTML = `${dayFourHumidity}%`;
+
+  let iconElementFour = document.querySelector("#icon-day-four");
+  iconElementFour.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.list[23].weather[0].icon}@2x.png`
+  );
+
+  //day5
+  let dayFiveMin = Math.round(response.data.list[30].main.temp_min);
+  let dayFiveMinElement = document.querySelector("#day-five-min");
+  dayFiveMinElement.innerHTML = `${dayFiveMin}°C`;
+
+  let dayFiveMax = Math.round(response.data.list[32].main.temp_max);
+  let dayFiveMaxElement = document.querySelector("#day-five-max");
+  dayFiveMaxElement.innerHTML = `${dayFiveMax}°C`;
+
+  let dayFiveHumidity = response.data.list[31].main.humidity;
+  let dayFiveHumidityElement = document.querySelector("#day-five-humidity");
+  dayFiveHumidityElement.innerHTML = `${dayFiveHumidity}%`;
+
+  let iconElementFive = document.querySelector("#icon-day-five");
+  iconElementFive.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.list[31].weather[0].icon}@2x.png`
+  );
+
+  //day6
+  let daySixMin = Math.round(response.data.list[38].main.temp_min);
+  let daySixMinElement = document.querySelector("#day-six-min");
+  daySixMinElement.innerHTML = `${daySixMin}°C`;
+
+  let daySixMax = Math.round(response.data.list[39].main.temp_max);
+  let daySixMaxElement = document.querySelector("#day-six-max");
+  daySixMaxElement.innerHTML = `${daySixMax}°C`;
+
+  let daySixHumidity = response.data.list[39].main.humidity;
+  let daySixHumidityElement = document.querySelector("#day-six-humidity");
+  daySixHumidityElement.innerHTML = `${daySixHumidity}%`;
+
+  let iconElementSix = document.querySelector("#icon-day-six");
+  iconElementSix.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.list[39].weather[0].icon}@2x.png`
+  );
 }
 
 navigator.geolocation.getCurrentPosition(showPosition);
@@ -130,11 +243,6 @@ let hour = `${currentHour}:${currentMinute}`;
 
 let h3 = document.querySelector("h3");
 h3.innerHTML = `${weekday}, ${month}/${day} | ${hour}`;
-
-function searchCity(city) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
-  axios.get(`${apiUrl}`).then(showTemperature);
-}
 
 function showCity(event) {
   event.preventDefault();
