@@ -1,8 +1,8 @@
 body {
   font-family: "Alegreya Sans", sans-serif;
 }
-.forecast-icons td {
-  font-size: 8px;
+.forecast-icons {
+  width: 40px;
 }
 
 .city {
@@ -11,13 +11,6 @@ body {
 
 .row {
   text-align: center;
-  font-size: large;
-}
-
-.fa-sun {
-  color: yellow;
-  font-size: 60px;
-  margin: 0 block;
 }
 
 h1 {
@@ -25,7 +18,7 @@ h1 {
   padding: 0 10px;
 }
 h2 {
-  color: yellowgreen;
+  color: darkblue;
   font-size: 62px;
   display: block;
   margin: 0 auto;
@@ -35,6 +28,7 @@ h2 {
 }
 p {
   text-transform: capitalize;
+  margin-bottom: 10px;
 }
 
 .temperature-description {
@@ -57,18 +51,13 @@ h3 {
   margin: 2px;
   color: #d50000;
 }
-.fa-tint {
-  color: blue;
-}
-.fa-wind {
-  color: burlywood;
-}
+
 .card-text {
   text-align: center;
   color: black;
 }
 .card {
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   flex-direction: column;
   min-width: max-content;
   max-width: 250px;
@@ -92,17 +81,17 @@ form {
 .temperatures {
   font-size: 14px;
 }
-tr {
+.table tr {
   text-align: center;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  padding: 0 0;
+  vertical-align: middle;
+}
+
+.table th {
   padding: 0 0;
 }
-.future {
-  padding-left: 0px;
-  margin-top: 0px;
-  padding-right: 0px;
-  margin: 0px;
-}
+
 .table {
   max-width: 200px;
   border-collapse: separate;
@@ -110,6 +99,7 @@ tr {
   margin-bottom: 0px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1px;
+  padding: 0;
 }
 
 .card-header .active {
@@ -119,4 +109,15 @@ tr {
 
 .card-header .active:hover {
   text-decoration: none;
+}
+.table td {
+  padding: 0;
+  vertical-align: middle;
+}
+strong {
+  font-size: 11px;
+}
+
+card {
+  padding: 10px;
 }

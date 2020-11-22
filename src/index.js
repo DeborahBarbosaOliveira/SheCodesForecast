@@ -117,6 +117,7 @@ function displayForecast(response) {
   daySixHumidityElement.innerHTML = `${daySixHumidity}%`;
 
   let iconElementSix = document.querySelector("#icon-day-six");
+  console.log(response.data.list[39].weather[0].icon);
   iconElementSix.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.list[39].weather[0].icon}@2x.png`
